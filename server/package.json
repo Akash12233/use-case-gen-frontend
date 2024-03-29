@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "description": "This backend for the beckn",
   "type": "module",
   "main": "index.js",
@@ -33,6 +34,8 @@
     "passport-google-oauth20": "^2.0.0"
   }
 =======
+=======
+>>>>>>> 7b8059821e03f866b2716682521658926771d5e5
   "description": "This backend for the Blogeze.",
   "main": "index.js",
   "scripts": {
@@ -43,5 +46,8 @@
   ],
   "author": "Akash Tayade",
   "license": "ISC"
+<<<<<<< HEAD
+>>>>>>> 7b8059821e03f866b2716682521658926771d5e5
+=======
 >>>>>>> 7b8059821e03f866b2716682521658926771d5e5
 }
