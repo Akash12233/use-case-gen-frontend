@@ -7,9 +7,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-import { useHistory } from "react-router-dom";
+import {useHistory  } from "react-router-dom";
 import InfoBox from '../component/InfoBox';
 import Checkbox from '@material-ui/core/Checkbox';
+import axios from "axios";
 
 export default function Home() {
     let history = useHistory();
@@ -27,12 +28,13 @@ export default function Home() {
         setstate({ ...state, userInfo: { ...state.userInfo, [event.target.name]: event.target.value } });
     };
 
-    const onButtonClick = () => {
+    const onButtonClick = async() => {
         if (state.userInfo.user && state.userInfo.name_org && state.userInfo.name_role_timestamp && state.userInfo.agree) {
             seterror(false);
             seterrorMsg('')
-            history.push('/search');
-        } else if ( !state.userInfo.agree) {
+            await signup();
+        } 
+        else if ( !state.userInfo.agree) {
             seterrorMsg('Please agree to code of sharing')
             seterror(true);
         }
@@ -67,6 +69,33 @@ export default function Home() {
         setstate({...state,userInfo:{...state.userInfo,agree:e.target.checked}})
     }
 
+    const signup= async ()=>{
+        try {
+            axios.post("http://localhost:8000/api/v1/users/register", state.userInfo);
+
+            localStorage.setItem('userInfo', JSON.stringify(state.userInfo));
+            history('/search');
+            console.log("User signed up successfully!"); 
+            
+        } catch (error) {   
+            console.log("Some error Occured", error);
+        }
+       
+          
+    }
+
+    const handleGoogleOAuth = () => {
+        window.location.href='http://localhost:8000/api/v1/users/google';
+    }
+
+    const handleFacebookOAuth = () => {
+        window.location.href = 'http://localhost:8000/api/v1/user/facebook';
+    }
+
+    const handleGithubOAuth = () => {
+        window.location.href = 'http://localhost:8000/api/v1/auth/github';
+    }
+
     return (
         <div className="home">
             <Card className="user-info-card">
@@ -97,6 +126,16 @@ export default function Home() {
                 </div>
                 <Button className="home-btn" variant="outlined" onClick={onButtonClick} >
                     proceed
+                </Button>
+                <div>or</div>
+                <Button className="auth-btn" variant="outlined" onClick={handleGoogleOAuth}> 
+                    Continue with Google 
+                </Button>
+                <Button className="auth-btn" variant="outlined" onClick={handleFacebookOAuth}> 
+                    Continue with Facebook 
+                </Button>
+                <Button className="auth-btn" variant="outlined" onClick={handleGithubOAuth}> 
+                    Continue with Github 
                 </Button>
                 {error ? <div className="error-text">{errorMsg}</div> : ''}
             </Card>

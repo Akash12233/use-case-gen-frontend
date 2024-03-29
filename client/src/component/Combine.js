@@ -57,9 +57,9 @@ export default function Combine() {
     const [loading, setLoading] = useState(false);
 
     const uploadFile = (e) => {
-        let file = e.target.files[0];
-        if (file) {
-            setFiles([...selectedFiles, file])
+        let files = e.target.files;
+        if (files.length>0) {
+            setFiles([...selectedFiles, ...files])
         }
     }
 
@@ -84,6 +84,7 @@ export default function Combine() {
             link.href = data;
             console.log(`Exported`)
             link.click();
+            setFiles([])
             setLoading(false)
         }
     }
@@ -96,6 +97,7 @@ export default function Combine() {
                     accept=".json"
                     style={{ display: 'none' }}
                     type="file"
+                    multiple
                     onChange={uploadFile} />
                 <Button
                     className="btn-choose"

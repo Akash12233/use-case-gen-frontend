@@ -72,6 +72,7 @@
 
 .home {
     margin-top: 70px;
+    margin-bottom: 70px;
     display: flex;
     justify-content: space-around;
 }
@@ -82,7 +83,7 @@
 
 .user-info-card {
     width: 400px;
-    height: 450px;
+    height: auto;
     background: #edededb0!important;
     display: flex;
     flex-direction: column;

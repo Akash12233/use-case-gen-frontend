@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+<<<<<<< HEAD
+  "description": "This backend for the beckn",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules index.js"
+  },
+  "keywords": [
+    "beckn"
+  ],
+  "author": "Akash Tayade",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^2.0.3",
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.3",
+    "mongoose-findorcreate": "^4.0.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0"
+  }
+=======
+  "description": "This backend for the Blogeze.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Blogeze"
+  ],
+  "author": "Akash Tayade",
+  "license": "ISC"
+>>>>>>> 7b8059821e03f866b2716682521658926771d5e5
+}

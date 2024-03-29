@@ -10,12 +10,10 @@ import Store from './Store';
 import Init from './pages/Init';
 import OnInit from './pages/OnInit';
 
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Confirm from './pages/Confirm';
 import OnConfirm from './pages/OnConfirm';
@@ -33,6 +31,8 @@ import Support from './pages/Support';
 import OnSupport from './pages/OnSupport';
 import Graph from './pages/Graph';
 import CombineCsv from './pages/CombineCsv';
+
+
 
 function App() {
   return (
